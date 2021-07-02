@@ -42,7 +42,7 @@ class BatteryController extends Controller
         $bateria = new Battery();
         $bateria->capacity = $request->capacidad;
         $bateria->save();
-        return redirect()->route('battery.index')->with('mensaje', 'La batería se creó correctamente!');
+        return redirect()->route('battery.index')->with('success', 'La batería se creó correctamente!');
     }
 
 

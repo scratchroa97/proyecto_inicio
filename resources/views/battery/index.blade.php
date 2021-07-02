@@ -2,6 +2,7 @@
 
 @section('title', 'Baterías')
 
+
 @section('content_header')
 <h1>Baterías <a href="{{ route('battery.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
 @stop
@@ -41,7 +42,8 @@
                                             href="{{ route('battery.edit',$bateria->id) }}">Editar</a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger" id="btnEliminar"
+                                            onclick="eliminar();">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -56,7 +58,7 @@
 
 
 
-@stop
+@endsection
 
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
@@ -64,6 +66,24 @@
 
 @section('js')
 <script>
-console.log('Hi!');
+function eliminar() {
+    Swal.fire({
+        title: '¿Está seguro?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Eliminado!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }
+    })
+}
 </script>
 @stop

@@ -1,5 +1,5 @@
 <?php
-
+@include('sweetalert::alert');
 return [
 
     /*
@@ -235,6 +235,12 @@ return [
             'icon'        => 'fas fa-battery-full',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Celulares',
+            'route'       => 'phone.index',
+            'icon'        => 'fas fa-mobile',
+            'label_color' => 'success',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -383,7 +389,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

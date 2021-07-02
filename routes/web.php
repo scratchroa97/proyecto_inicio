@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BatteryController;
+use App\Http\Controllers\PhoneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('battery', BatteryController::class);
+    Route::resource('phone', PhoneController::class);
 });
