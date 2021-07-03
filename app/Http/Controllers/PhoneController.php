@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Battery;
 use App\Models\Brand;
 use App\Models\Color;
+use App\Models\GraphicCard;
+use App\Models\OperatingSystem;
 use App\Models\Phone;
+use App\Models\Processor;
+use App\Models\RamMemory;
+use App\Models\RomMemory;
 use App\Models\Screen;
 use Illuminate\Http\Request;
 
@@ -27,10 +33,16 @@ class PhoneController extends Controller
      */
     public function create()
     {
-        $marcas = Brand::all()->sortBy('brand_name');
         $colores = Color::all()->sortBy('color_name');
+        $marcas = Brand::all()->sortBy('brand_name');
         $pantallas = Screen::all()->sortBy('inches');
-        return view('phone.create', compact('marcas', 'colores', 'pantallas'));
+        $rams = RamMemory::all()->sortBy('ram_capacity');
+        $roms = RomMemory::all()->sortBy('rom_capacity');
+        $baterias = Battery::all()->sortBy('capacity');
+        $procesadores = Processor::all()->sortBy('proccesor_name');
+        $graficos = GraphicCard::all()->sortBy('graphic_name');
+        $ops = OperatingSystem::all()->sortBy('os_name');
+        return view('phone.create', compact('colores', 'marcas', 'pantallas', 'rams', 'roms', 'baterias', 'procesadores', 'graficos', 'ops'));
     }
 
     /**
@@ -41,7 +53,28 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'phone_name' => 'required',
+            'phone_model' => 'required',
+            'fotos' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'precio' => 'required',
+            'sd_slot' => 'required',
+            'dual_sim' => 'required',
+            'fast_charge' => 'required',
+            'id_color' => 'required',
+            'id_brand' => 'required',
+            'id_screen' => 'required',
+            'id_ram_memory' => 'required',
+            'id_rom_memory' => 'required',
+            'id_battery' => 'required',
+            'id_processor' => 'required',
+            'id_graphic' => 'required',
+            'id_operating_system' => 'required',
+        ]);
+        $request->file('fotos')->getClientOriginalName();
+        $request->file(('fotos'))->store('public/uploads');
+        Phone::create($request->all());
+        return redirect()->route('phone.index')->with('success', 'Se creó el teléfono!');
     }
 
     /**
@@ -52,7 +85,7 @@ class PhoneController extends Controller
      */
     public function show(Phone $phone)
     {
-        //
+        return view('phone.view', compact('phone'));
     }
 
     /**
