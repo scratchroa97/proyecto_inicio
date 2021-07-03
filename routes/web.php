@@ -26,4 +26,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('battery', BatteryController::class);
     Route::resource('phone', PhoneController::class);
+    Route::resource('brand', BrandController::class);
 });
