@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ram;
 use App\Models\RamMemory;
 use Illuminate\Http\Request;
 
-class RamMemoryController extends Controller
+class ramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class RamMemoryController extends Controller
      */
     public function index()
     {
-        //
+        $ram = RamMemory::all();
+        return view('ram.index', compact('ram'));
     }
 
     /**
@@ -24,7 +26,7 @@ class RamMemoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('ram.create');
     }
 
     /**
@@ -35,51 +37,59 @@ class RamMemoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'capacidad' => 'required|max:8'
+        ]);
+        $ram = new RamMemory();
+        $ram->capacity = $request->capacidad;
+        $ram->save();
+        return redirect()->route('ram.index')->with('success', 'La memoria RAM se creó correctamente!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\RamMemory  $ramMemory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RamMemory $ramMemory)
+
+    public function show(RamMemory $ram)
     {
-        //
+        return view('ram.edit', compact('ram'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RamMemory  $ramMemory
+     * @param  \App\Models\ram  $ram
      * @return \Illuminate\Http\Response
      */
-    public function edit(RamMemory $ramMemory)
+    public function edit(RamMemory $ram)
     {
-        //
+        return view('ram.edit', compact('ram'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RamMemory  $ramMemory
+     * @param  \App\Models\ram  $ram
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RamMemory $ramMemory)
+    public function update(Request $request, RamMemory $ram)
     {
-        //
+        $request->validate([
+            'capacidad' => 'required|max:8'
+        ]);
+
+        $ram = RamMemory::find($ram->id);
+        $ram->capacity = $request->capacidad;
+        $ram->save();
+        return redirect()->route('ram.index')->with('success', 'La memoria RAM se actualizó correctamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RamMemory  $ramMemory
+     * @param  \App\Models\ram  $ram
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RamMemory $ramMemory)
+    public function destroy(RamMemory $ram)
     {
-        //
+        $ram->delete();
+        return redirect()->route('ram.index')->with('success', 'La memoria RAM se eliminó correctamente.');
     }
 }
