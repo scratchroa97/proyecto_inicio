@@ -14,7 +14,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-        //
+        $colores = Color::all();
+        return view('color.index', compact('colores'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        return view('color.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombreColor' => 'required'
+        ]);
+        $color = new Color();
+        $color->color_name = $request->nombreColor;
+        $color->save();
+        return redirect()->route('color.index')->with('success', 'El color se creó correctamente!');
     }
 
     /**
@@ -46,7 +53,7 @@ class ColorController extends Controller
      */
     public function show(Color $color)
     {
-        //
+        return view('color.edit', compact('color'));
     }
 
     /**
@@ -57,7 +64,7 @@ class ColorController extends Controller
      */
     public function edit(Color $color)
     {
-        //
+        return view('color.edit', compact('color'));
     }
 
     /**
@@ -69,7 +76,17 @@ class ColorController extends Controller
      */
     public function update(Request $request, Color $color)
     {
-        //
+        $request->validate([
+            'nombreColor' => 'required'
+        ]);
+
+        $color = Color::find($color->id);
+
+        $color->color_name = $request->nombreColor;
+    
+        $color->save();
+        return redirect()->route('color.index')->with('success', 'El color se actualizó correctamente.');
+    
     }
 
     /**
@@ -80,6 +97,8 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        //
+        $color->delete();
+        return redirect()->route('color.index')->with('success', 'El color se eliminó correctamente.');
+    
     }
 }

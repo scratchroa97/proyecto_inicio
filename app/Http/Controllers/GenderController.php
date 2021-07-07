@@ -14,7 +14,8 @@ class GenderController extends Controller
      */
     public function index()
     {
-        //
+        $genders = Gender::all();
+        return view('gender.index', compact('genders'));
     }
 
     /**
@@ -24,7 +25,7 @@ class GenderController extends Controller
      */
     public function create()
     {
-        //
+        return view('gender.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class GenderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'gender_name' => 'required'
+        ]);
+        $gender = new Gender();
+        $gender->gender_name = $request->gender_name;
+        $gender->save();
+        return redirect()->route('gender.index')->with('success', 'El nombre gender se creó correctamente!');
+    
     }
 
     /**
@@ -46,7 +54,7 @@ class GenderController extends Controller
      */
     public function show(Gender $gender)
     {
-        //
+        return view('gender.edit', compact('gender'));
     }
 
     /**
@@ -57,7 +65,7 @@ class GenderController extends Controller
      */
     public function edit(Gender $gender)
     {
-        //
+        return view('gender.edit', compact('gender'));
     }
 
     /**
@@ -69,7 +77,15 @@ class GenderController extends Controller
      */
     public function update(Request $request, Gender $gender)
     {
-        //
+        $request->validate([
+            'gender_name' => 'required'
+        ]);
+
+        $bateria = Gender::find($gender->id);
+        $bateria->gender_name = $request->gender_name;
+        $bateria->save();
+        return redirect()->route('gender.index')->with('success', 'El nombre gender se actualizó correctamente.');
+    
     }
 
     /**
@@ -80,6 +96,8 @@ class GenderController extends Controller
      */
     public function destroy(Gender $gender)
     {
-        //
+        $gender->delete();
+        return redirect()->route('gender.index')->with('success', 'El nombre gender se eliminó correctamente.');
+    
     }
 }

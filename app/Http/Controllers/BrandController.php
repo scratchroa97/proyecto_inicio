@@ -14,7 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $brands = Brand::all();
+        return view('brand.index', compact('brands'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brand.create');
     }
 
     /**
@@ -35,7 +36,16 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombreBrand' => 'required',
+            'typeBrand' => 'required'
+        ]);
+        $brands = new Brand();
+        $brands->brand_name = $request->nombreBrand;
+        $brands->type = $request->typeBrand;
+        $brands->save();
+        return redirect()->route('brand.index')->with('success', 'La brand se creó correctamente!');
+    
     }
 
     /**
@@ -46,7 +56,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        return view('brand.edit', compact('brand'));
     }
 
     /**
@@ -57,7 +67,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        return view('brand.edit', compact('brand'));
     }
 
     /**
@@ -69,7 +79,18 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        $request->validate([
+            'nombreBrand' => 'required',
+            'typeBrand' => 'required'
+        ]);
+
+        $brand = Brand::find($brand->id);
+
+        $brand->brand_name = $request->nombreBrand;
+        $brand->type = $request->typeBrand;
+
+        $brand->save();
+        return redirect()->route('brand.index')->with('success', 'La brand se actualizó correctamente.');
     }
 
     /**
@@ -80,6 +101,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()->route('brand.index')->with('success', 'La brand se eliminó correctamente.');
     }
 }
