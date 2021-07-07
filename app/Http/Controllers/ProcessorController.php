@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Processor;
 use Illuminate\Http\Request;
 
-class ProcessorController extends Controller
+class PrecessorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ProcessorController extends Controller
      */
     public function index()
     {
-        //
+        $procesador = Processor::all();
+        return view('processor.index', compact('procesador'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProcessorController extends Controller
      */
     public function create()
     {
-        //
+        return view('processor.create');
     }
 
     /**
@@ -35,51 +36,59 @@ class ProcessorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'referencia' => 'required|max:20'
+        ]);
+        $procesador = new Processor();
+        $procesador->capacity = $request->capacidad;
+        $procesador->save();
+        return redirect()->route('processor.index')->with('success', 'El procesador se creó correctamente!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Processor  $processor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Processor $processor)
+
+    public function show(Processor $procesador)
     {
-        //
+        return view('processor.edit', compact('processor'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Processor  $processor
+     * @param  \App\Models\Processor  $procesador
      * @return \Illuminate\Http\Response
      */
-    public function edit(Processor $processor)
+    public function edit(Processor $procesador)
     {
-        //
+        return view('processor.edit', compact('processor'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Processor  $processor
+     * @param  \App\Models\Processor  $procesador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Processor $processor)
+    public function update(Request $request, Processor $procesador)
     {
-        //
+        $request->validate([
+            'referencia' => 'required|max:20'
+        ]);
+
+        $procesador = Processor::find($procesador->id);
+        $procesador->capacity = $request->capacidad;
+        $procesador->save();
+        return redirect()->route('processor.index')->with('success', 'El procesador se actualizó correctamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Processor  $processor
+     * @param  \App\Models\Processor  $battery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Processor $processor)
+    public function destroy(Processor $procesador)
     {
-        //
+        $procesador->delete();
+        return redirect()->route('processor.index')->with('success', 'El procesador se eliminó correctamente.');
     }
 }
