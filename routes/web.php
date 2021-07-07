@@ -27,4 +27,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('battery', BatteryController::class);
     Route::resource('phone', PhoneController::class);
     Route::resource('brand', BrandController::class);
+    Route::resource('color', ColorController::class);
 });
