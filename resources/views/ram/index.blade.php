@@ -35,11 +35,10 @@
                             @foreach($ram as $ram)
                             <tr>
                                 <td>{{ $ram['id']}}</td>
-                                <td>{{ $ram['capacity']}}</td>
+                                <td>{{ $ram['ram_capacity']}}</td>
                                 <td>
                                     <form action="{{ route('ram.destroy',$ram->id) }}" method="POST">
-                                        <a class="btn btn-primary"
-                                            href="{{ route('ram.edit',$ram->id) }}">Editar</a>
+                                        <a class="btn btn-primary" href="{{ route('ram.edit',$ram->id) }}">Editar</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" id="btnEliminar"
