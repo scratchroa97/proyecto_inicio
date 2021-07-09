@@ -36,10 +36,10 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="">Quienes somos</a>
+                        <a class="nav-link" href="#">Quienes somos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="">Contacto</a>
+                        <a class="nav-link" href="#">Contacto</a>
                     </li>
                     @guest
                     @if (Route::has('register'))
@@ -79,50 +79,7 @@
 
         <!-- End Navbar -->
 
-        <!-- Carrusel -->
-        <div class="row">
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
 
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" style="height: 500px;">
-                        <img src="https://pbs.twimg.com/media/EEHMp2DU8AIsuTe.jpg"
-                            class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 style="color: rgb(136, 136, 136)">Accesorios</h5>
-                            <p style="color: rgb(136, 136, 136)">Conoce todos nuestra linea de accesorios para tu móvil.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style="height: 500px">
-                        <img src="https://surflorida.com/wp-content/uploads/2021/02/mejores-celulares-2018.jpg"
-                            class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Celulares</h5>
-                            <p>Conoce los diferentes móviles al mejor precio del mercado.</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-        <!-- End Carrusel -->
-
-        <div class="row">
-            <div class="jumbotron col-12">
-                <h1 class="text-center">Productos con descuento</h1>
-                <p class="text-center">Estos son algunos de los descuentos que tenemos en el momento desde el 10% hasta el 25%</p>
-            </div>
-        </div>
 
         <!-- Listado mejores productos 1 -->
         <div class="row">
@@ -166,50 +123,8 @@
                 </div>
             </div>
         </div>
-        <!-- End Listado mejores productos 1-->
 
-        <!-- Listado mejores productos 2 -->
-        <div class="row mt-3">
-            <div class="card col-lg-3">
-                <img src="https://www.alkosto.com/medias/194252140659-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wyNzk5MHxpbWFnZS9qcGVnfGltYWdlcy9oNmIvaDU3LzEwMDU2NjYxNzI5MzEwLmpwZ3w5ZTM5N2Y5OGY0YjA4Yzg5YTg0MmVhYTE4ZThkZWRiM2Q5OWUwODZhNzdmNDRiNWY4Nzg2MjQyYWNlMDlhYmM0"
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">iPhone XR 64GB "Negro</h5>
-                    <p class="card-text">$2.229.000</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
 
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/840023212574-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wyOTYzNXxpbWFnZS9qcGVnfGltYWdlcy9oOGIvaDVlLzEwNDIyNzc2MjY2NzgyLmpwZ3wzZTA3ODEzNzQ4ZjY5OGJmY2VkMTA1ODQ0M2I2ZmI1M2UyZmNkZGZiNTFkZTZjYWE5ZDRkYzAzMGJmN2I3OWQw" 
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular MOTOROLA G30 128GB Lila</h5>
-                    <p class="card-text">$769.900</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
-
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/6944284687417-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wyNDc0OHxpbWFnZS9qcGVnfGltYWdlcy9oYzAvaGQ0LzEwNjA0NzQ1ODUwOTEwLmpwZ3xlNjQyYzg4YWEzZDliMGEzM2E5MWZlZmRjZTQ2MjZiMTAyOGFmNzA3MTk1MDEwZDcyNmM1OWQwMjg4NzUzMzZi"
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular OPPO A54 128GB Azul</h5>
-                    <p class="card-text">$769.900</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
-
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/840023205262-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wzMzAxNHxpbWFnZS9qcGVnfGltYWdlcy9oZWYvaGQ1Lzk4MTQ4NDUwOTU5NjYuanBnfDYyMzliNTk1YTAwNmZmZTI0NzI1MWQ1MDgyZmE3NzdkN2Q1YzhmYzQyNDQ5ZmM3MWExNjE3OTBmOGQyYTk3ODk"
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular MOTO G9 Play 64GB Verde - Evergreen</h5>
-                    <p class="card-text">$549.900</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
-        </div>
         <!-- End Listado mejores productos 2-->
 
     </div>
