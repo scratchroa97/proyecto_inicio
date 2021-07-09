@@ -6,7 +6,7 @@ use App\Models\ram;
 use App\Models\RamMemory;
 use Illuminate\Http\Request;
 
-class ramController extends Controller
+class RamMemoryController extends Controller
 {
     /**
      * Display a listing of the resource.

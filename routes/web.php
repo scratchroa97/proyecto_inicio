@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\RamMemoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +29,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('battery', BatteryController::class);
     Route::resource('phone', PhoneController::class);
     Route::resource('brand', BrandController::class);
+<<<<<<< Updated upstream
     Route::resource('color', ColorController::class);
     Route::resource('gender', GenderController::class);
+=======
+    Route::resource('ram', RamMemoryController::class);
+>>>>>>> Stashed changes
 });
