@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProcessorSeeder::class);
         $this->call(RamSeeder::class);
         $this->call(RomSeeder::class);
-        $this->call(RomSeeder::class);
         $this->call(ScreenSeeder::class);
     }
 }
