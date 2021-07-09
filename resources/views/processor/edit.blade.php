@@ -28,8 +28,8 @@
                         @method('PUT')
                         <div class="form-group">
                             <strong>Refeencia del procesador</strong>
-                            <input type="text" name="capacidad" id="capacidad" class="form-control"
-                                value="{{ $procesador['capacity'] }}">
+                            <input type="text" name="referencia" id="referencia" class="form-control"
+                                value="{{ $procesador->processor_name }}">
                             <small>La referencia del procesador puede ser intel o AMD.</small>
                         </div>
                         <div class="form-group">

@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1>Memoría rom <a href="{{ route('ram.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h3>Memorías rom</h3>
 @stop
 
 @section('content')
@@ -22,6 +22,8 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
+                    <a href="{{ route('rom.create') }}" class="btn btn-success btn-sm float-right"><i
+                            class="fa fa-plus"></i> Nueva</a>
                     <h2>Listado de Memorias rom</h2>
                 </div>
                 <div class="card-body">
@@ -32,14 +34,13 @@
                             <th>Acción</th>
                         </thead>
                         <tbody>
-                            @foreach($ram as $ram)
+                            @foreach($rom as $rom)
                             <tr>
-                                <td>{{ $ram['id']}}</td>
-                                <td>{{ $ram['capacity']}}</td>
+                                <td>{{ $rom->id}}</td>
+                                <td>{{ $rom->rom_capacity}}</td>
                                 <td>
-                                    <form action="{{ route('rom.destroy',$ram->id) }}" method="POST">
-                                        <a class="btn btn-primary"
-                                            href="{{ route('rom.edit',$ram->id) }}">Editar</a>
+                                    <form action="{{ route('rom.destroy',$rom->id) }}" method="POST">
+                                        <a class="btn btn-primary" href="{{ route('rom.edit',$rom->id) }}">Editar</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" id="btnEliminar"

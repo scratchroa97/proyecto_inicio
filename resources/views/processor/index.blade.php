@@ -4,7 +4,8 @@
 
 
 @section('content_header')
-<h1>Procesadores <a href="{{ route('processor.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h1>Procesadores <a href="{{ route('processor.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a>
+</h1>
 @stop
 
 @section('content')
@@ -34,15 +35,15 @@
                         <tbody>
                             @foreach($procesador as $procesador)
                             <tr>
-                                <td>{{ $procesador['id']}}</td>
-                                <td>{{ $procesador['capacity']}}</td>
+                                <td>{{ $procesador->id}}</td>
+                                <td>{{ $procesador->processor_name}}</td>
                                 <td>
-                                    <form action="{{ route('processor.destroy',$procesador->id) }}" method="POST">
-                                        <a class="btn btn-primary"
-                                            href="{{ route('processor.edit',$procesador->id) }}">Editar</a>
+                                    <form action="{{ route('processor.destroy', $procesador->id) }}" method="POST">
+                                        <a class="btn btn-primary btn-sm"
+                                            href="{{ route('processor.edit', $procesador->id) }}">Editar</a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" id="btnEliminar"
+                                        <button type="submit" class="btn btn-danger btn-sm" id="btnEliminar"
                                             onclick="eliminar();">Eliminar</button>
                                     </form>
                                 </td>

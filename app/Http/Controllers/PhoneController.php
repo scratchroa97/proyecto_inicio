@@ -13,6 +13,7 @@ use App\Models\RamMemory;
 use App\Models\RomMemory;
 use App\Models\Screen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PhoneController extends Controller
 {
@@ -61,52 +62,41 @@ class PhoneController extends Controller
             'sd_slot' => 'required',
             'dual_sim' => 'required',
             'fast_charge' => 'required',
-            'id_color' => 'required',
-            'id_brand' => 'required',
-            'id_screen' => 'required',
-            'id_ram_memory' => 'required',
-            'id_rom_memory' => 'required',
-            'id_battery' => 'required',
-            'id_processor' => 'required',
-            'id_graphic' => 'required',
-            'id_operating_system' => 'required',
-            'fotos' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'color_id' => 'required',
+            'brand_id' => 'required',
+            'screen_id' => 'required',
+            'ram_memory_id' => 'required',
+            'rom_memory_id' => 'required',
+            'battery_id' => 'required',
+            'processor_id' => 'required',
+            'graphic_card_id' => 'required',
+            'operating_system_id' => 'required',
+            'foto' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-        if ($request->hasFile('fotos')) {
-            $filenameWithExt = $request->file('fotos')->getClientOriginalName();
-            // Get Filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just Extension
-            $extension = $request->file('fotos')->getClientOriginalExtension();
 
-            // Filename To store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-
-            // Upload Image$path = 
-            $request->file('fotos')->storeAs('public/uploads', $fileNameToStore);
-        }
-        // Else add a dummy image
-        else {
-            $fileNameToStore = 'noimage . jpg';
-        }
         $phone = new Phone();
-
         $phone->phone_name = $request->phone_name;
         $phone->phone_model = $request->phone_model;
-        $phone->fotos = $fileNameToStore;
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/phones/', $filename);
+            $phone->foto = $filename;
+        }
         $phone->precio = $request->precio;
         $phone->sd_slot = $request->sd_slot;
         $phone->dual_sim = $request->dual_sim;
         $phone->fast_charge = $request->fast_charge;
-        $phone->id_color = $request->id_color;
-        $phone->id_brand = $request->id_brand;
-        $phone->id_screen = $request->id_screen;
-        $phone->id_ram_memory = $request->id_ram_memory;
-        $phone->id_rom_memory = $request->id_rom_memory;
-        $phone->id_battery = $request->id_battery;
-        $phone->id_processor = $request->id_processor;
-        $phone->id_graphic = $request->id_graphic;
-        $phone->id_operating_system = $request->id_operating_system;
+        $phone->color_id = $request->color_id;
+        $phone->brand_id = $request->brand_id;
+        $phone->screen_id = $request->screen_id;
+        $phone->ram_memory_id = $request->ram_memory_id;
+        $phone->rom_memory_id = $request->rom_memory_id;
+        $phone->battery_id = $request->battery_id;
+        $phone->processor_id = $request->processor_id;
+        $phone->graphic_card_id = $request->graphic_card_id;
+        $phone->operating_system_id = $request->operating_system_id;
         $phone->save();
         return redirect()->route('phone.index')->with('success', 'Se creó el teléfono correctamente!');
     }
@@ -119,7 +109,7 @@ class PhoneController extends Controller
      */
     public function show(Phone $phone)
     {
-        return view('phone.view', compact('phone'));
+        return view('phone.show', compact('phone'));
     }
 
     /**
@@ -130,7 +120,16 @@ class PhoneController extends Controller
      */
     public function edit(Phone $phone)
     {
-        return view('phone.edit', compact('phone'));
+        $colors = Color::all()->sortBy('color_name')->except($phone->getColor->id);
+        $brands = Brand::all()->sortBy('brand_name')->except($phone->getBrand->id);
+        $screens = Screen::all()->sortBy('inches')->except($phone->getScreen->id);
+        $rams = RamMemory::all()->sortBy('ram_capacity')->except($phone->getRam->id);
+        $roms = RomMemory::all()->sortBy('rom_capacity')->except($phone->getRom->id);
+        $batteries = Battery::all()->sortBy('capacity')->except($phone->getBattery->id);
+        $processors = Processor::all()->sortBy('proccesor_name')->except($phone->getProcessor->id);
+        $graphics = GraphicCard::all()->sortBy('graphic_name')->except($phone->getGraphic->id);
+        $ops = OperatingSystem::all()->sortBy('os_name')->except($phone->getOS->id);
+        return view('phone.edit', compact('colors', 'brands', 'screens', 'rams', 'roms', 'batteries', 'processors', 'graphics', 'ops', 'phone'));
     }
 
     /**
@@ -142,6 +141,7 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
+        $phone = Phone::find($phone->id);
         $request->validate([
             'phone_name' => 'required',
             'phone_model' => 'required',
@@ -149,53 +149,46 @@ class PhoneController extends Controller
             'sd_slot' => 'required',
             'dual_sim' => 'required',
             'fast_charge' => 'required',
-            'id_color' => 'required',
-            'id_brand' => 'required',
-            'id_screen' => 'required',
-            'id_ram_memory' => 'required',
-            'id_rom_memory' => 'required',
-            'id_battery' => 'required',
-            'id_processor' => 'required',
-            'id_graphic' => 'required',
-            'id_operating_system' => 'required',
-            'fotos' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'color_id' => 'required',
+            'brand_id' => 'required',
+            'screen_id' => 'required',
+            'ram_memory_id' => 'required',
+            'rom_memory_id' => 'required',
+            'battery_id' => 'required',
+            'processor_id' => 'required',
+            'graphic_card_id' => 'required',
+            'operating_system_id' => 'required',
+            'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-        if ($request->hasFile('fotos')) {
-            $filenameWithExt = $request->file('fotos')->getClientOriginalName();
-            // Get Filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just Extension
-            $extension = $request->file('fotos')->getClientOriginalExtension();
-
-            // Filename To store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-
-            // Upload Image$path = 
-            $request->file('fotos')->storeAs('public/uploads', $fileNameToStore);
-        }
-        // Else add a dummy image
-        else {
-            $fileNameToStore = 'noimage . jpg';
-        }
-        $phone = Phone::find($phone->id);
 
         $phone->phone_name = $request->phone_name;
         $phone->phone_model = $request->phone_model;
-        $phone->fotos = $fileNameToStore;
+        if ($request->hasFile('foto')) {
+            $destination = 'uploads/phones/' . $phone->foto;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $file = $request->file('foto');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/phones/', $filename);
+            $phone->foto = $filename;
+        }
+
         $phone->precio = $request->precio;
         $phone->sd_slot = $request->sd_slot;
         $phone->dual_sim = $request->dual_sim;
         $phone->fast_charge = $request->fast_charge;
-        $phone->id_color = $request->id_color;
-        $phone->id_brand = $request->id_brand;
-        $phone->id_screen = $request->id_screen;
-        $phone->id_ram_memory = $request->id_ram_memory;
-        $phone->id_rom_memory = $request->id_rom_memory;
-        $phone->id_battery = $request->id_battery;
-        $phone->id_processor = $request->id_processor;
-        $phone->id_graphic = $request->id_graphic;
-        $phone->id_operating_system = $request->id_operating_system;
-        $phone->save();
+        $phone->color_id = $request->color_id;
+        $phone->brand_id = $request->brand_id;
+        $phone->screen_id = $request->screen_id;
+        $phone->ram_memory_id = $request->ram_memory_id;
+        $phone->rom_memory_id = $request->rom_memory_id;
+        $phone->battery_id = $request->battery_id;
+        $phone->processor_id = $request->processor_id;
+        $phone->graphic_card_id = $request->graphic_card_id;
+        $phone->operating_system_id = $request->operating_system_id;
+        $phone->update();
         return redirect()->route('phone.index')->with('success', 'Se actualizó el teléfono correctamente!');
     }
 

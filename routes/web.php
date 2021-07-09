@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\BatteryController;
-use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\GenderController;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\ProcessorController;
 use App\Http\Controllers\RamMemoryController;
+use App\Http\Controllers\RomMemoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +31,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('battery', BatteryController::class);
-    Route::resource('phone', PhoneController::class);
     Route::resource('brand', BrandController::class);
-    Route::resource('ram', RamMemoryController::class);
     Route::resource('color', ColorController::class);
     Route::resource('gender', GenderController::class);
+    Route::resource('phone', PhoneController::class);
+    Route::resource('processor', ProcessorController::class);
+    Route::resource('ram', RamMemoryController::class);
+    Route::resource('rom', RomMemoryController::class);
 });
