@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Baterías')
+@section('title', 'operatingSystem')
 
 
 @section('content_header')
-<h1>Baterías <a href="{{ route('battery.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h1>Operating System <a href="{{ route('operatingSystem.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
 @stop
 
 @section('content')
@@ -22,24 +22,24 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2>Listado de baterías</h2>
+                    <h2>Listado de operating System</h2>
                 </div>
                 <div class="card-body">
                     <table class="table table-ms table-bordered">
                         <thead class="thead-dark">
                             <th>#</th>
-                            <th>Capacidad</th>
+                            <th>Nombre</th>
                             <th>Acción</th>
                         </thead>
                         <tbody>
-                            @foreach($baterias as $bateria)
+                            @foreach($operatingSystem as $operatingSystem)
                             <tr>
-                                <td>{{ $bateria['id']}}</td>
-                                <td>{{ $bateria['capacity']}}</td>
+                                <td>{{ $operatingSystem['id']}}</td>
+                                <td>{{ $operatingSystem['os_name']}}</td>
                                 <td>
-                                    <form action="{{ route('battery.destroy',$bateria->id) }}" method="POST">
+                                    <form action="{{ route('operatingSystem.destroy',$operatingSystem->id) }}" method="POST">
                                         <a class="btn btn-primary"
-                                            href="{{ route('battery.edit',$bateria->id) }}">Editar</a>
+                                            href="{{ route('operatingSystem.edit',$operatingSystem->id) }}">Editar</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" id="btnEliminar"
