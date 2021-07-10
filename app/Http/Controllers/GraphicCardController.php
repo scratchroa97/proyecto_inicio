@@ -14,7 +14,8 @@ class GraphicCardController extends Controller
      */
     public function index()
     {
-        //
+        $graphicCard = GraphicCard::all();
+        return view('graphicCard.index', compact('graphicCard'));
     }
 
     /**
@@ -24,7 +25,7 @@ class GraphicCardController extends Controller
      */
     public function create()
     {
-        //
+        return view('graphicCard.create');
     }
 
     /**
@@ -35,7 +36,16 @@ class GraphicCardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'graphicname' => 'required',
+            'description' => 'required'
+        ]);
+        $graphicCard = new GraphicCard();
+        $graphicCard->graphic_name = $request->graphicname;
+        $graphicCard->description = $request->description;
+        $graphicCard->save();
+        return redirect()->route('graphicCard.index')->with('success', 'La graphic Card se creó correctamente!');
+    
     }
 
     /**
@@ -46,7 +56,7 @@ class GraphicCardController extends Controller
      */
     public function show(GraphicCard $graphicCard)
     {
-        //
+        return view('graphicCard.edit', compact('graphicCard'));
     }
 
     /**
@@ -57,7 +67,7 @@ class GraphicCardController extends Controller
      */
     public function edit(GraphicCard $graphicCard)
     {
-        //
+        return view('graphicCard.edit', compact('graphicCard'));
     }
 
     /**
@@ -69,7 +79,19 @@ class GraphicCardController extends Controller
      */
     public function update(Request $request, GraphicCard $graphicCard)
     {
-        //
+        $request->validate([
+            'graphicname' => 'required',
+            'description' => 'required'
+        ]);
+
+        $graphicCard = GraphicCard::find($graphicCard->id);
+        
+        $graphicCard->graphic_name = $request->graphicname;
+        $graphicCard->description = $request->description;
+
+        $graphicCard->save();
+        return redirect()->route('brand.index')->with('success', 'La graphic Card se actualizó correctamente.');
+    
     }
 
     /**
@@ -80,6 +102,8 @@ class GraphicCardController extends Controller
      */
     public function destroy(GraphicCard $graphicCard)
     {
-        //
+        $graphicCard->delete();
+        return redirect()->route('graphicCard.index')->with('success', 'La graphic Card se eliminó correctamente.');
+    
     }
 }
