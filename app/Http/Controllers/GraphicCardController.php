@@ -90,7 +90,7 @@ class GraphicCardController extends Controller
         $graphicCard->description = $request->description;
 
         $graphicCard->save();
-        return redirect()->route('brand.index')->with('success', 'La graphic Card se actualizó correctamente.');
+        return redirect()->route('graphicCard.index')->with('success', 'La graphic Card se actualizó correctamente.');
     
     }
 
