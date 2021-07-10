@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\GraphicCardyController;
 use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
