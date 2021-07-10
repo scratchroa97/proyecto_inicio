@@ -85,7 +85,7 @@ class ScreenController extends Controller
         $screen = Screen::find($screen->id);
         $screen->inches = $request->inches;
         $screen->save();
-        return redirect()->route('inches.index')->with('success', 'La pantalla se actualizó correctamente.');
+        return redirect()->route('screen.index')->with('success', 'La pantalla se actualizó correctamente.');
     
     }
 
