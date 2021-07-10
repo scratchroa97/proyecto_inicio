@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\OperatingSystemController;
 use App\Http\Controllers\GraphicCardController;
 use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
@@ -39,4 +40,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('ram', RamMemoryController::class);
     Route::resource('rom', RomMemoryController::class);
     Route::resource('graphicCard', GraphicCardController::class);
+    Route::resource('operatingSystem', OperatingSystemController::class);
 });
