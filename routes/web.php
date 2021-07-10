@@ -38,4 +38,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('processor', ProcessorController::class);
     Route::resource('ram', RamMemoryController::class);
     Route::resource('rom', RomMemoryController::class);
+    Route::resource('graphicCard', GraphicCardyController::class);
 });
