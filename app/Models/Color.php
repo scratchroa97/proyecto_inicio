@@ -13,4 +13,9 @@ class Color extends Model
     {
         return $this->belongsToMany(Phone::class, 'id');
     }
+
+    public function accesory()
+    {
+        return $this->belongsToMany(Accesory::class, 'id');
+    }
 }

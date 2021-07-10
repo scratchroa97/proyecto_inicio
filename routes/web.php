@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccesoryController;
 use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
@@ -30,6 +31,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::resource('accesory', AccesoryController::class);
     Route::resource('battery', BatteryController::class);
     Route::resource('brand', BrandController::class);
     Route::resource('color', ColorController::class);

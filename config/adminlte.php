@@ -234,7 +234,11 @@ return [
             'text'        => 'Celulares',
             'route'       => 'phone.index',
             'icon'        => 'fas fa-mobile',
-            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Accesorios',
+            'route'       => 'accesory.index',
+            'icon'        => 'fa fa-dropbox',
         ],
         [
             'text'    => 'Configuración',
