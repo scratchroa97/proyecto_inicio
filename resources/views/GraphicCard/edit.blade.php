@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <strong>Nombre de graphic Card</strong>
                             <input type="text" name="graphicname" id="graphicname" class="form-control"
-                                value="{{ $brand['brand_name'] }}">
+                                value="{{ $graphicCard['graphic_name'] }}">
                         </div>
                         <div class="form-group">
                             <strong>Description de graphic Card</strong>
