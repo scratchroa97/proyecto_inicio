@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\GraphicCardyController;
+use App\Http\Controllers\GraphicCardController;
 use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
@@ -38,5 +38,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('processor', ProcessorController::class);
     Route::resource('ram', RamMemoryController::class);
     Route::resource('rom', RomMemoryController::class);
-    Route::resource('graphicCard', GraphicCardyController::class);
+    Route::resource('graphicCard', GraphicCardController::class);
 });

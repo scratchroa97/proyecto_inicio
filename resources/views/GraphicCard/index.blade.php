@@ -32,13 +32,13 @@
                             <th>Description</th>
                         </thead>
                         <tbody>
-                            @foreach($graphicCards as $graphicCard)
+                            @foreach($graphicCard as $graphicCard)
                             <tr>
                                 <td>{{ $graphicCard['id']}}</td>
                                 <td>{{ $graphicCard['graphic_name']}}</td>
                                 <td>{{ $graphicCard['description']}}</td>
                                 <td>
-                                    <form action="{{ route('graphicCard.destroy',$brand->id) }}" method="POST">
+                                    <form action="{{ route('graphicCard.destroy',$graphicCard->id) }}" method="POST">
                                         <a class="btn btn-primary"
                                             href="{{ route('graphicCard.edit',$graphicCard->id) }}">Editar</a>
                                         @csrf
