@@ -5,6 +5,8 @@ use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GenderController;
+use App\Http\Controllers\GraphicCardController;
+use App\Http\Controllers\OperatingSystemController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProcessorController;
 use App\Http\Controllers\RamMemoryController;
@@ -40,4 +42,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('processor', ProcessorController::class);
     Route::resource('ram', RamMemoryController::class);
     Route::resource('rom', RomMemoryController::class);
+    Route::resource('graphicCard', GraphicCardController::class);
+    Route::resource('operatingSystem', OperatingSystemController::class);
 });
