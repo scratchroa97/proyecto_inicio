@@ -33,13 +33,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbar">
                 <ul class="navbar-nav list-inline mt-2 mr-3 mt-lg-0">
                     <li class="list-inline-item">
-                        <a class="nav-link" href="{{route('/')}}">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="list-inline-item active">
                         <a class="nav-link" href="#">Quienes somos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="">Contacto</a>
+                        <a class="nav-link" href="{{ url('/contacto')}}">Contacto</a>
                     </li>
                     @guest
                     @if (Route::has('register'))

@@ -36,10 +36,10 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="">Quienes somos</a>
+                        <a class="nav-link" href="{{ url('/somos')}}">Quienes somos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="">Contacto</a>
+                        <a class="nav-link" href="{{ url('/contacto')}}">Contacto</a>
                     </li>
                     @guest
                     @if (Route::has('register'))

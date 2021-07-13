@@ -35,6 +35,9 @@ Route::get('/', function () {
 Route::get('/somos', function () {
     return view('somos');
 });
+Route::get('/contacto', function () {
+    return view('contacto');
+});
 
 Auth::routes();
 
