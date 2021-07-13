@@ -32,12 +32,10 @@ Route::get('/', function () {
     return view('welcome', compact('phones'));
 });
 
-Route::get('/somos', function () {
-    return view('somos');
-});
-Route::get('/contacto', function () {
-    return view('contacto');
-});
+Route::view('somos', 'somos')->name('somos');
+Route::view('contacto', 'contacto')->name('contacto');
+
+
 
 Auth::routes();
 

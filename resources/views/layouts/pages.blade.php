@@ -32,14 +32,27 @@
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbar">
                 <ul class="navbar-nav list-inline mt-2 mr-3 mt-lg-0">
-                    <li class="list-inline-item active">
-                        <a class="nav-link" href="">Home</a>
+                    <li class="list-inline-item {{request()->routeIs('/') ? 'active':''}}">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="list-inline-item dropdown">
+                        <a class="nav-link dropdown-toggle {{request()->routeIs('celulares') ? 'active':''}}" href="#"
+                            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Productos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Accesorios</a>
+                            <a class="dropdown-item" href="#">Celulares</a>
+                        </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="{{ url('/somos')}}">Quienes somos</a>
+                        <a class="nav-link {{request()->routeIs('somos') ? 'active':''}}"
+                            href="{{ route('somos')}}">Quienes somos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="{{ url('/contacto')}}">Contacto</a>
+                        <a class="nav-link {{request()->routeIs('contacto') ? 'active':''}}"
+                            href="{{ route('contacto')}}">Contacto</a>
                     </li>
                     @guest
                     @if (Route::has('register'))

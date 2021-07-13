@@ -35,6 +35,16 @@
                     <li class="list-inline-item active">
                         <a class="nav-link" href="">Home</a>
                     </li>
+                    <li class="list-inline-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Productos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Accesorios</a>
+                            <a class="dropdown-item" href="#">Celulares</a>
+                        </div>
+                    </li>
                     <li class="list-inline-item">
                         <a class="nav-link" href="{{ url('/somos')}}">Quienes somos</a>
                     </li>
