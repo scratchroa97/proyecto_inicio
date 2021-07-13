@@ -18,7 +18,7 @@ class CreatePhonesTable extends Migration
             $table->string('phone_name');
             $table->string('phone_model');
             $table->text('fotos');
-            $table->double('precio');
+            $table->integer('precio');
             $table->boolean('sd_slot');
             $table->boolean('dual_sim');
             $table->boolean('fast_charge');

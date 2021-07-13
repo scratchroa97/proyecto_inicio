@@ -41,7 +41,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <strong>Precio</strong>
-                                    <input type="text" name="precio" id="precio" class="form-control">
+                                    <input type="number" name="precio" id="precio" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">
@@ -49,8 +49,8 @@
                                     <strong>Slot SD</strong>
                                     <select name="sd_slot" id="sd_slot" class="form-control">
                                         <option value="">Seleccione una opción</option>
-                                        <option value="true">Si</option>
-                                        <option value="false">No</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
@@ -59,8 +59,8 @@
                                     <strong>Dual SIM</strong>
                                     <select name="dual_sim" id="dual_sim" class="form-control">
                                         <option value="">Seleccione una opción</option>
-                                        <option value="true">Si</option>
-                                        <option value="false">No</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
                                     <strong>Carga rápida</strong>
                                     <select name="fast_charge" id="fast_charge" class="form-control">
                                         <option value="">Seleccione una opción</option>
-                                        <option value="true">Si</option>
-                                        <option value="false">No</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
                                     </select>
                                 </div>
                             </div>

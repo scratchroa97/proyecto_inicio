@@ -23,7 +23,8 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        return view('phone.index');
+        $phones = Phone::all();
+        return view('phone.index', compact('phones'));
     }
 
     /**
@@ -56,7 +57,6 @@ class PhoneController extends Controller
         $request->validate([
             'phone_name' => 'required',
             'phone_model' => 'required',
-            'fotos' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'precio' => 'required',
             'sd_slot' => 'required',
             'dual_sim' => 'required',
@@ -70,11 +70,45 @@ class PhoneController extends Controller
             'id_processor' => 'required',
             'id_graphic' => 'required',
             'id_operating_system' => 'required',
+            'fotos' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-        $request->file('fotos')->getClientOriginalName();
-        $request->file(('fotos'))->store('public/uploads');
-        Phone::create($request->all());
-        return redirect()->route('phone.index')->with('success', 'Se creó el teléfono!');
+        if ($request->hasFile('fotos')) {
+            $filenameWithExt = $request->file('fotos')->getClientOriginalName();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('fotos')->getClientOriginalExtension();
+
+            // Filename To store
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
+            // Upload Image$path = 
+            $request->file('fotos')->storeAs('public/uploads', $fileNameToStore);
+        }
+        // Else add a dummy image
+        else {
+            $fileNameToStore = 'noimage . jpg';
+        }
+        $phone = new Phone();
+
+        $phone->phone_name = $request->phone_name;
+        $phone->phone_model = $request->phone_model;
+        $phone->fotos = $fileNameToStore;
+        $phone->precio = $request->precio;
+        $phone->sd_slot = $request->sd_slot;
+        $phone->dual_sim = $request->dual_sim;
+        $phone->fast_charge = $request->fast_charge;
+        $phone->id_color = $request->id_color;
+        $phone->id_brand = $request->id_brand;
+        $phone->id_screen = $request->id_screen;
+        $phone->id_ram_memory = $request->id_ram_memory;
+        $phone->id_rom_memory = $request->id_rom_memory;
+        $phone->id_battery = $request->id_battery;
+        $phone->id_processor = $request->id_processor;
+        $phone->id_graphic = $request->id_graphic;
+        $phone->id_operating_system = $request->id_operating_system;
+        $phone->save();
+        return redirect()->route('phone.index')->with('success', 'Se creó el teléfono correctamente!');
     }
 
     /**
@@ -96,7 +130,7 @@ class PhoneController extends Controller
      */
     public function edit(Phone $phone)
     {
-        //
+        return view('phone.edit', compact('phone'));
     }
 
     /**
@@ -108,7 +142,61 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
-        //
+        $request->validate([
+            'phone_name' => 'required',
+            'phone_model' => 'required',
+            'precio' => 'required',
+            'sd_slot' => 'required',
+            'dual_sim' => 'required',
+            'fast_charge' => 'required',
+            'id_color' => 'required',
+            'id_brand' => 'required',
+            'id_screen' => 'required',
+            'id_ram_memory' => 'required',
+            'id_rom_memory' => 'required',
+            'id_battery' => 'required',
+            'id_processor' => 'required',
+            'id_graphic' => 'required',
+            'id_operating_system' => 'required',
+            'fotos' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        if ($request->hasFile('fotos')) {
+            $filenameWithExt = $request->file('fotos')->getClientOriginalName();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('fotos')->getClientOriginalExtension();
+
+            // Filename To store
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
+            // Upload Image$path = 
+            $request->file('fotos')->storeAs('public/uploads', $fileNameToStore);
+        }
+        // Else add a dummy image
+        else {
+            $fileNameToStore = 'noimage . jpg';
+        }
+        $phone = Phone::find($phone->id);
+
+        $phone->phone_name = $request->phone_name;
+        $phone->phone_model = $request->phone_model;
+        $phone->fotos = $fileNameToStore;
+        $phone->precio = $request->precio;
+        $phone->sd_slot = $request->sd_slot;
+        $phone->dual_sim = $request->dual_sim;
+        $phone->fast_charge = $request->fast_charge;
+        $phone->id_color = $request->id_color;
+        $phone->id_brand = $request->id_brand;
+        $phone->id_screen = $request->id_screen;
+        $phone->id_ram_memory = $request->id_ram_memory;
+        $phone->id_rom_memory = $request->id_rom_memory;
+        $phone->id_battery = $request->id_battery;
+        $phone->id_processor = $request->id_processor;
+        $phone->id_graphic = $request->id_graphic;
+        $phone->id_operating_system = $request->id_operating_system;
+        $phone->save();
+        return redirect()->route('phone.index')->with('success', 'Se actualizó el teléfono correctamente!');
     }
 
     /**
@@ -119,6 +207,7 @@ class PhoneController extends Controller
      */
     public function destroy(Phone $phone)
     {
-        //
+        $phone->delete();
+        return redirect()->route('phone.index')->with('success', 'Se eliminó el teléfono correctamente!');
     }
 }

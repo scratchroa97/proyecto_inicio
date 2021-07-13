@@ -32,4 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('color', ColorController::class);
     Route::resource('gender', GenderController::class);
     Route::resource('ram', RamMemoryController::class);
+    Route::resource('ram', RamMemoryController::class);
+    Route::resource('color', ColorController::class);
+    Route::resource('gender', GenderController::class);
 });
