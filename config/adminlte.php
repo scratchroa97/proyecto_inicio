@@ -229,83 +229,65 @@ return [
 
 
         // Sidebar items:
-        [
-            'text'        => 'Baterías',
-            'route'       => 'battery.index',
-            'icon'        => 'fas fa-battery-full',
-            'label_color' => 'success',
-        ],
+        ['header' => 'DASHBOARD'],
         [
             'text'        => 'Celulares',
             'route'       => 'phone.index',
             'icon'        => 'fas fa-mobile',
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'        => 'Accesorios',
+            'route'       => 'accesory.index',
+            'icon'        => 'fa fa-dropbox',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Configuración',
+            'icon'    => 'fa fa-cog',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'  => 'Baterías',
+                    'route' => 'battery.index',
+                    'icon'  => 'fas fa-battery-full',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text'  => 'Marcas',
+                    'route' => 'brand.index',
+                    'icon'  => 'fa fa-bookmark',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'  => 'Colores',
+                    'route' => 'color.index',
+                    'icon'  => 'fa fa-paint-brush',
+                ],
+                [
+                    'text'  => 'Procesadores',
+                    'route' => 'processor.index',
+                    'icon'  => 'fa fa-microchip',
+                ],
+                [
+                    'text'  => 'Ram',
+                    'route' => 'ram.index',
+                    'icon'  => 'fa fa-microchip',
+                ],
+                [
+                    'text'  => 'Rom',
+                    'route' => 'rom.index',
+                    'icon'  => 'fa fa-microchip',
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
     ],
 
     /*

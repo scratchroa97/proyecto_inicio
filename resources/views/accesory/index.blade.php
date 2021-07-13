@@ -1,10 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Teléfonos')
+@section('title', 'Accesorios')
 
 
 @section('content_header')
-<h1>Teléfonos <a href="{{ route('phone.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h1>Accesorios <a href="{{ route('accesory.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a>
+</h1>
 @stop
 
 @section('content')
@@ -22,25 +23,26 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2>Listado de celulares</h2>
+                    <h2>Listado de accesorios</h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
 
-                        @foreach($phones as $phone)
+                        @foreach($accesories as $accesory)
                         <div class="card col-sm-12 col-md-4 col-lg-3">
-                            <img src="{{asset('uploads/phones/'.$phone->foto)}}" class="card-img-top"
+                            <img src="{{asset('uploads/accesories/'.$accesory->foto)}}" class="card-img-top"
                                 alt="Se supone que va la imagen" width="200px" height="200px">
                             <div class="card-body">
-                                <h5 class="card-title">{{$phone->phone_name}}</h5>
+                                <h5 class="card-title">{{$accesory->name}}</h5>
                                 <p class="card-text">
-                                    ${{number_format($phone->precio)}}
+                                    ${{number_format($accesory->price)}}
                                 </p>
-                                <form action="" method="POST" class="text-center">
-                                    <a class="btn btn-sm btn-info" href="{{ route('phone.show',$phone->id) }}"><i
+                                <form action="{{route('accesory.destroy', $accesory->id)}}" method="POST"
+                                    class="text-center">
+                                    <a class="btn btn-sm btn-info" href="{{ route('accesory.show',$accesory->id) }}"><i
                                             class="fa fa-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('phone.edit',$phone->id) }}"><i
-                                            class="fa fa-pen"></i></a>
+                                    <a class="btn btn-sm btn-primary"
+                                        href="{{ route('accesory.edit', $accesory->id) }}"><i class="fa fa-pen"></i></a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger" id="btnEliminar"

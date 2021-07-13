@@ -14,7 +14,9 @@ class OperatingSystemController extends Controller
      */
     public function index()
     {
-        //
+        $operatingSystem = OperatingSystem::all();
+        return view('operatingSystem.index', compact('operatingSystem'));
+    
     }
 
     /**
@@ -24,7 +26,7 @@ class OperatingSystemController extends Controller
      */
     public function create()
     {
-        //
+        return view('operatingSystem.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class OperatingSystemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'os_name' => 'required'
+        ]);
+        $operatingSystem = new OperatingSystem();
+        $operatingSystem->os_name = $request->os_name;
+        $operatingSystem->save();
+        return redirect()->route('operatingSystem.index')->with('success', 'El nombre Operating System se creó correctamente!');
+    
     }
 
     /**
@@ -46,7 +55,7 @@ class OperatingSystemController extends Controller
      */
     public function show(OperatingSystem $operatingSystem)
     {
-        //
+        return view('operatingSystem.edit', compact('operatingSystem'));
     }
 
     /**
@@ -57,7 +66,7 @@ class OperatingSystemController extends Controller
      */
     public function edit(OperatingSystem $operatingSystem)
     {
-        //
+        return view('operatingSystem.edit', compact('operatingSystem'));
     }
 
     /**
@@ -69,7 +78,15 @@ class OperatingSystemController extends Controller
      */
     public function update(Request $request, OperatingSystem $operatingSystem)
     {
-        //
+        $request->validate([
+            'os_name' => 'required'
+        ]);
+
+        $operatingSystem = OperatingSystem::find($operatingSystem->id);
+        $operatingSystem->os_name = $request->os_name;
+        $operatingSystem->save();
+        return redirect()->route('operatingSystem.index')->with('success', 'EL operating System se actualizó correctamente.');
+    
     }
 
     /**
@@ -80,6 +97,8 @@ class OperatingSystemController extends Controller
      */
     public function destroy(OperatingSystem $operatingSystem)
     {
-        //
+        $operatingSystem->delete();
+        return redirect()->route('operatingSystem.index')->with('success', 'EL operatingSystem se eliminó correctamente.');
+    
     }
 }

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Rom')
+@section('title', 'screen')
 
 @section('content_header')
-<h1>Memoría ROM</h1>
+<h1>Screen</h1>
 @stop
 
 @section('content')
@@ -20,19 +20,20 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Crear Memoria ROM</h2>
+                    <h2 class="text-center">Editar screen</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('rom.store') }}" method="POST">
+                    <form action="{{ route('screen.update', $screen->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
-                            <strong>Capacidad de la Memoria ROM</strong>
-                            <input type="text" name="capacidad" id="capacidad" class="form-control">
-                            <small>La capacidad de la memoria se guarda en Gb.</small>
+                            <strong>Screen</strong>
+                            <input type="text" name="inches" id="inches" class="form-control"
+                                value="{{ $screen['inches'] }}">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Crear</button>
-                            <a href="{{ route('rom.index') }}" class="btn btn-warning">Cancelar</a>
+                            <button type="submit" class="btn btn-success">Actualizar</button>
+                            <a href="{{ route('screen.index') }}" class="btn btn-warning">Cancelar</a>
                         </div>
                     </form>
                 </div>

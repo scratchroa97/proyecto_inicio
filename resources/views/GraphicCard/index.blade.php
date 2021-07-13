@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Memoria rom')
+@section('title', 'GraphicCard')
 
 
 @section('content_header')
-<h3>Memorías rom</h3>
+<h1>Graphic Card<a href="{{ route('graphicCard.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
 @stop
 
 @section('content')
@@ -22,25 +22,25 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('rom.create') }}" class="btn btn-success btn-sm float-right"><i
-                            class="fa fa-plus"></i> Nueva</a>
-                    <h2>Listado de Memorias rom</h2>
+                    <h2>Listado de Graphic Card</h2>
                 </div>
                 <div class="card-body">
                     <table class="table table-ms table-bordered">
                         <thead class="thead-dark">
                             <th>#</th>
-                            <th>Capacidad</th>
-                            <th>Acción</th>
+                            <th>Nombre Graphic Card</th>
+                            <th>Description</th>
                         </thead>
                         <tbody>
-                            @foreach($rom as $rom)
+                            @foreach($graphicCard as $graphicCard)
                             <tr>
-                                <td>{{ $rom->id}}</td>
-                                <td>{{ $rom->rom_capacity}}</td>
+                                <td>{{ $graphicCard['id']}}</td>
+                                <td>{{ $graphicCard['graphic_name']}}</td>
+                                <td>{{ $graphicCard['description']}}</td>
                                 <td>
-                                    <form action="{{ route('rom.destroy',$rom->id) }}" method="POST">
-                                        <a class="btn btn-primary" href="{{ route('rom.edit',$rom->id) }}">Editar</a>
+                                    <form action="{{ route('graphicCard.destroy',$graphicCard->id) }}" method="POST">
+                                        <a class="btn btn-primary"
+                                            href="{{ route('graphicCard.edit',$graphicCard->id) }}">Editar</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" id="btnEliminar"

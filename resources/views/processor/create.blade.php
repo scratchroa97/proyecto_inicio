@@ -27,7 +27,7 @@
                         @csrf
                         <div class="form-group">
                             <strong>Referencia del procesador</strong>
-                            <input type="text" name="capacidad" id="capacidad" class="form-control">
+                            <input type="text" name="referencia" id="referencia" class="form-control">
                             <small>La refrencia del procesador puede cambiar</small>
                         </div>
                         <div class="form-group">

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Rom')
+@section('title', 'operatingSystem')
 
 @section('content_header')
-<h1>Memoría ROM</h1>
+<h1>Operating System</h1>
 @stop
 
 @section('content')
@@ -20,19 +20,18 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Crear Memoria ROM</h2>
+                    <h2 class="text-center">Crear Operating System</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('rom.store') }}" method="POST">
+                    <form action="{{ route('operatingSystem.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <strong>Capacidad de la Memoria ROM</strong>
-                            <input type="text" name="capacidad" id="capacidad" class="form-control">
-                            <small>La capacidad de la memoria se guarda en Gb.</small>
+                            <strong>Nombre Operating System</strong>
+                            <input type="text" name="os_name" id="os_name" class="form-control">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Crear</button>
-                            <a href="{{ route('rom.index') }}" class="btn btn-warning">Cancelar</a>
+                            <a href="{{ route('operatingSystem.index') }}" class="btn btn-warning">Cancelar</a>
                         </div>
                     </form>
                 </div>

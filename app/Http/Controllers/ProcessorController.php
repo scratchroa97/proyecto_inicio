@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Processor;
 use Illuminate\Http\Request;
 
-class PrecessorController extends Controller
+class ProcessorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +40,7 @@ class PrecessorController extends Controller
             'referencia' => 'required|max:20'
         ]);
         $procesador = new Processor();
-        $procesador->capacity = $request->capacidad;
+        $procesador->processor_name = $request->referencia;
         $procesador->save();
         return redirect()->route('processor.index')->with('success', 'El procesador se creó correctamente!');
     }
@@ -48,7 +48,6 @@ class PrecessorController extends Controller
 
     public function show(Processor $procesador)
     {
-        return view('processor.edit', compact('processor'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +57,7 @@ class PrecessorController extends Controller
      */
     public function edit(Processor $procesador)
     {
-        return view('processor.edit', compact('processor'));
+        return view('processor.edit', compact('procesador'));
     }
 
     /**
@@ -73,9 +72,8 @@ class PrecessorController extends Controller
         $request->validate([
             'referencia' => 'required|max:20'
         ]);
-
         $procesador = Processor::find($procesador->id);
-        $procesador->capacity = $request->capacidad;
+        $procesador->processor_name = $request->referencia;
         $procesador->save();
         return redirect()->route('processor.index')->with('success', 'El procesador se actualizó correctamente.');
     }

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Battery extends Model
 {
     use HasFactory;
+
+    public function phones()
+    {
+
+        return $this->belongsToMany(Phone::class, 'id');
+    }
 }
