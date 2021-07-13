@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ScreenController;
 use App\Http\Controllers\AccesoryController;
 use App\Http\Controllers\BatteryController;
@@ -6,11 +7,13 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GenderController;
 use App\Http\Controllers\GraphicCardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OperatingSystemController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProcessorController;
 use App\Http\Controllers\RamMemoryController;
 use App\Http\Controllers\RomMemoryController;
+use App\Models\Phone;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +28,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $phones = Phone::all();
+    return view('welcome', compact('phones'));
+});
+
+Route::get('/somos', function () {
+    return view('somos');
 });
 
 Auth::routes();
@@ -49,6 +57,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('graphicCard', GraphicCardController::class);
     Route::resource('operatingSystem', OperatingSystemController::class);
     Route::resource('screen', ScreenController::class);
-
-    
 });

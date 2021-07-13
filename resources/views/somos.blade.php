@@ -32,14 +32,14 @@
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbar">
                 <ul class="navbar-nav list-inline mt-2 mr-3 mt-lg-0">
-                    <li class="list-inline-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
                     <li class="list-inline-item">
+                        <a class="nav-link" href="{{route('/')}}">Home</a>
+                    </li>
+                    <li class="list-inline-item active">
                         <a class="nav-link" href="#">Quienes somos</a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="">Contacto</a>
                     </li>
                     @guest
                     @if (Route::has('register'))
@@ -83,45 +83,7 @@
 
         <!-- Listado mejores productos 1 -->
         <div class="row">
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/840023215414-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wzNjAzNnxpbWFnZS9qcGVnfGltYWdlcy9oOWMvaDA0LzEwNTUyODAwMTQ5NTM0LmpwZ3w3YmEzNGI1ZTE1ZWJlYTYxMTRlODE0Y2UzYzJmMmI0ZDAxZjg2NGNkNzJhM2IzMTkyMTgzYWJiNzI2MzJjYzFh"
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular MOTOROLA G20 64GB Azul</h5>
-                    <p class="card-text">$649.000</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
-
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/8806090795787-001-310Wx310H?context=bWFzdGVyfGltYWdlc3w1NTU2NnxpbWFnZS9qcGVnfGltYWdlcy9oZjYvaGFhLzk5MTAzNjQ2MDIzOTguanBnfDE0NGViN2ZhODYxMzM4NjcyYWQ2YzJjYjRmNDkwNjg1ZDI1MTU4YWRlNzc5MTQ5OTcyZTU4MmZmNWJlMDcwNTM"
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular SAMSUNG Galaxy A21S-128 GB Negro</h5>
-                    <p class="card-text">$729.000</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
-
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/8806087044287-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wyODk4OHxpbWFnZS9qcGVnfGltYWdlcy9oNWUvaGJiLzEwNTY1OTc3NDczMDU0LmpwZ3w4NjcwY2IyZWJlNTU0MGJhMjM3MjRkYTM3MjhiODhiNmY5NTA2MDI3YThmNTc1ODY0MjBjMTVkZGI4MzA5NzU0"
-                    class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular LG K61 - 128GB Blanco</h5>
-                    <p class="card-text">$999.000</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
-
-            <div class="card col-sm-12 col-md-4 col-lg-3">
-                <img src="https://www.alkosto.com/medias/6935117829746-001-310Wx310H?context=bWFzdGVyfGltYWdlc3wyOTg4NnxpbWFnZS9qcGVnfGltYWdlcy9oZWIvaDI4LzEwNDY0OTkwNDYxOTgyLmpwZ3wzNmI5Mzc0OTY1NjVlNmNiMmUzOTVkNDk4N2FmN2RhNTIxNTAyMGUwN2U3MDk1NTVjNThkOGViYTczMjljMjZh"
-                class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Celular VIVO Y51 8GB+128GB Azul</h5>
-                    <p class="card-text">$797.900</p>
-                    <a href="#" class="btn btn-primary">¡Lo quiero!</a>
-                </div>
-            </div>
+            <h1>Página de quienes somos</h1>
         </div>
 
 
