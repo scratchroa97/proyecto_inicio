@@ -14,6 +14,7 @@ use App\Http\Controllers\ProcessorController;
 use App\Http\Controllers\RamMemoryController;
 use App\Http\Controllers\RomMemoryController;
 use App\Models\Phone;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,13 +28,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $phones = Phone::all();
-    return view('welcome', compact('phones'));
-});
 
+// Route::get('/', function () {
+//     $phones = DB::table('phones')->get(['foto', 'phone_name', 'precio']);
+//     return view('welcome', compact('phones'));
+// });
+
+Route::view('/', 'welcome', ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])])->name('/');
 Route::view('somos', 'somos')->name('somos');
 Route::view('contacto', 'contacto')->name('contacto');
+Route::view('celulares', 'celulares', ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])])->name('celulares');
 
 
 

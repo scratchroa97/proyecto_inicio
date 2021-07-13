@@ -32,8 +32,8 @@
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbar">
                 <ul class="navbar-nav list-inline mt-2 mr-3 mt-lg-0">
-                    <li class="list-inline-item {{request()->routeIs('/') ? 'active':''}}">
-                        <a class="nav-link" href="/">Home</a>
+                    <li class="list-inline-item">
+                        <a class="nav-link  {{request()->routeIs('/') ? 'active':''}}" href="/">Home</a>
                     </li>
                     <li class="list-inline-item dropdown">
                         <a class="nav-link dropdown-toggle {{request()->routeIs('celulares') ? 'active':''}}" href="#"
@@ -42,8 +42,10 @@
                             Productos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Accesorios</a>
-                            <a class="dropdown-item" href="#">Celulares</a>
+                            <a class="dropdown-item {{request()->routeIs('accesorios') ? 'active':''}}"
+                                href="">Accesorios</a>
+                            <a class="dropdown-item {{request()->routeIs('celulares') ? 'active':''}}"
+                                href="{{ route('celulares') }}">Celulares</a>
                         </div>
                     </li>
                     <li class="list-inline-item">
@@ -91,20 +93,10 @@
         </nav>
 
         <!-- End Navbar -->
-
-        <div class="row">
-            <div class="jumbotron col-12">
-                @yield('title')
-            </div>
-        </div>
-
-        <!-- Listado mejores productos 1 -->
         <div class="row">
             @yield('content')
         </div>
-        <!-- End Listado mejores productos 1-->
 
-        <!-- Listado mejores productos 2 -->
 
     </div>
     <!-- Footer -->
