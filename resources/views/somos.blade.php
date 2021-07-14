@@ -26,8 +26,8 @@
             <div class="col-12 d-flex justify-content-center text-primary p-4 font-size:20px" >
                 <h1 > ¿Qué nos diferencia?</h1>
             </div>
-            <div class="">
-                    <div id="mk-icon-box-34" class="mk-box-icon-2  jupiter-donut- box-align-left col-6">
+            <div class="row">
+                    <div id="mk-icon-box-34" class="mk-box-icon-2  jupiter-donut- box-align-left col-6 ">
                         <div class="mk-box-icon-2-image" style="width:48px;"> 
                             <img src="https://vzlatam.com/wp-content/uploads/2019/05/precios.svg" alt="Precios competitivos y convenios personalizados"> 
                         </div>
