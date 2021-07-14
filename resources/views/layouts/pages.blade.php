@@ -147,25 +147,24 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold">Cell Shop</h6>
+                    <h6 class="text-uppercase font-weight-bold">Phone Shop</h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                        amet,
-                        consectetur
-                        adipisicing elit.</p>
+                    <p class="">PhoneShop empresa especializada en la comercialización y distribución de
+                        celulares y accesorios, la cual pretende consolidarse en el mercado nacional como una de las
+                        mejores.</p>
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Products</h6>
+                    <h6 class="text-uppercase font-weight-bold">Productos</h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a href="form_battery.php">Baterias</a>
+                        <a href="form_battery.php">Accesorios</a>
                     </p>
                     <p>
-                        <a href="formularios/form_screen_size.php">Tamaño de Pantalla</a>
+                        <a href="{{ route('celulares') }}">Celulares</a>
                     </p>
                     <p>
                         <a href="#!">Servicio Remoto</a>
@@ -183,10 +182,10 @@
                     <h6 class="text-uppercase font-weight-bold">Enlaces útiles</h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a href="#!">Mi cuenta</a>
+                        <a href="#!">Garantías</a>
                     </p>
                     <p>
-                        <a href="#!">Registrarme</a>
+                        <a href="{{ route('register') }}">Registrarme</a>
                     </p>
                     <p>
                         <a href="#!">Tarifas de envío</a>
@@ -203,7 +202,7 @@
                     <h6 class="text-uppercase font-weight-bold">Contacto</h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <i class="fas fa-home mr-3"></i> Bogotá, Calle 123&nbsp;#&nbsp;45-123 CO
+                        <i class="fas fa-home mr-3"></i> Bogotá, Calle 13&nbsp;#&nbsp;45-13 CO
                     </p>
                     <p>
                         <i class="fas fa-envelope mr-3"></i> celphone@example.com
