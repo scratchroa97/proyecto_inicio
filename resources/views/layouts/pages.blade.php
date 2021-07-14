@@ -43,7 +43,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item {{request()->routeIs('accesorios') ? 'active':''}}"
-                                href="">Accesorios</a>
+                                href="{{ route('accesorios') }}">Accesorios</a>
                             <a class="dropdown-item {{request()->routeIs('celulares') ? 'active':''}}"
                                 href="{{ route('celulares') }}">Celulares</a>
                         </div>

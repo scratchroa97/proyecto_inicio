@@ -38,6 +38,7 @@ Route::view('/', 'welcome', ['phones' => $phones = DB::table('phones')->orderBy(
 Route::view('somos', 'somos')->name('somos');
 Route::view('contacto', 'contacto')->name('contacto');
 Route::view('celulares', 'celulares', ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])])->name('celulares');
+Route::view('accesorios', 'accesorios', ['accesorios' => $phones = DB::table('accesories')->orderBy('price')->get(['foto', 'name', 'price'])])->name('accesorios');
 
 
 
