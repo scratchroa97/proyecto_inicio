@@ -205,7 +205,7 @@
                         <i class="fas fa-home mr-3"></i> Bogotá, Calle 13&nbsp;#&nbsp;45-13 CO
                     </p>
                     <p>
-                        <i class="fas fa-envelope mr-3"></i> celphone@example.com
+                        <i class="fas fa-envelope mr-3"></i> contact@phoneshop.com
                     </p>
                     <p>
                         <i class="fas fa-phone mr-3"></i> + 01 234 567 88
@@ -221,7 +221,7 @@
         </div>
         <!-- Footer Links -->
         <!-- Copyright -->
-        <div class="footer-copyright text-center text-white py-3">© 2020 Copyright
+        <div class="footer-copyright text-center text-white py-3">© 2021
             <a href="https://mdbootstrap.com/"> Grupo 3</a>
         </div>
         <!-- Copyright -->
