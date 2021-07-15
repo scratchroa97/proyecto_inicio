@@ -27,7 +27,7 @@
                         @csrf
                         <div class="form-group">
                             <strong>Nombre</strong>
-                            <input type="text" name="tipocolor" id="tipocolor" class="form-control">
+                            <input type="text" name="nombreColor" id="nombreColor" class="form-control">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Crear</button>
