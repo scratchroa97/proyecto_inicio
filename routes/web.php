@@ -33,12 +33,12 @@ use Illuminate\Support\Facades\Route;
 //     $phones = DB::table('phones')->get(['foto', 'phone_name', 'precio']);
 //     return view('welcome', compact('phones'));
 // });
-//  ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])]
-Route::view('/', 'welcome')->name('/');
+//  
+Route::view('/', 'welcome', ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])])->name('/');
 Route::view('somos', 'somos')->name('somos');
 Route::view('contacto', 'contacto')->name('contacto');
-// Route::view('celulares', 'celulares', ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])])->name('celulares');
-// Route::view('accesorios', 'accesorios', ['accesorios' => $phones = DB::table('accesories')->orderBy('price')->get(['foto', 'name', 'price'])])->name('accesorios');
+Route::view('celulares', 'celulares', ['phones' => $phones = DB::table('phones')->orderBy('precio')->get(['foto', 'phone_name', 'precio'])])->name('celulares');
+Route::view('accesorios', 'accesorios', ['accesorios' => $phones = DB::table('accesories')->orderBy('price')->get(['foto', 'name', 'price'])])->name('accesorios');
 
 
 
