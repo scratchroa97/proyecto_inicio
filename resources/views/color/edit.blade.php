@@ -20,17 +20,16 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Editar Color</h2>
+                    <h2 class="text-center">Editar color</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('color.update', $colors->id) }}" method="POST">
+                    <form action="{{ route('color.update', $color->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <strong>Tipo de color</strong>
-                            <input type="text" name="tipocolor" id="tipocolor" class="form-control"
-                                value="{{ $colors['color'] }}">
-                            <small>El tipo de color se guarda por el nombre.</small>
+                            <strong>Nombre</strong>
+                            <input type="text" name="nombreColor" id="nombreColor" class="form-control"
+                                value="{{ $color['color_name'] }}">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Actualizar</button>

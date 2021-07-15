@@ -44,19 +44,7 @@ class BrandController extends Controller
         $brands->brand_name = $request->nombreBrand;
         $brands->type = $request->typeBrand;
         $brands->save();
-        return redirect()->route('brand.index')->with('success', 'La brand se creó correctamente!');
-    
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Brand $brand)
-    {
-        return view('brand.edit', compact('brand'));
+        return redirect()->route('brand.index')->with('success', 'La marca se creó correctamente!');
     }
 
     /**
@@ -89,8 +77,8 @@ class BrandController extends Controller
         $brand->brand_name = $request->nombreBrand;
         $brand->type = $request->typeBrand;
 
-        $brand->save();
-        return redirect()->route('brand.index')->with('success', 'La brand se actualizó correctamente.');
+        $brand->update();
+        return redirect()->route('brand.index')->with('success', 'La marca se actualizó correctamente!');
     }
 
     /**
@@ -102,6 +90,6 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         $brand->delete();
-        return redirect()->route('brand.index')->with('success', 'La brand se eliminó correctamente.');
+        return redirect()->route('brand.index')->with('success', 'La marca se eliminó correctamente.');
     }
 }

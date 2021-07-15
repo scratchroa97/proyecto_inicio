@@ -26,9 +26,8 @@
                     <form action="{{ route('color.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <strong>Tipo de Color</strong>
+                            <strong>Nombre</strong>
                             <input type="text" name="tipocolor" id="tipocolor" class="form-control">
-                            <small>El tipo de color se guarda por el nombre.</small>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Crear</button>
@@ -47,7 +46,5 @@
 @stop
 
 @section('js')
-<script>
-console.log('Hi!');
-</script>
+
 @stop

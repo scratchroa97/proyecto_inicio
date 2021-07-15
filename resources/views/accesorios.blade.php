@@ -42,11 +42,11 @@
 </div>
 @foreach($accesorios as $accesorio)
 <div class="card col-sm-12 col-md-4 col-lg-3">
-    <img src="{{asset('uploads/phones/'.$accesorio->foto)}}" class="card-img-top" alt="Se supone que va la imagen"
+    <img src="{{asset('uploads/accesories/'.$accesorio->foto)}}" class="card-img-top" alt="Se supone que va la imagen"
         width="200px" height="200px">
     <div class="card-body text-center">
         <h5 class="card-title">{{ucfirst(strtolower($accesorio->name))}}</h5>
-        <p class="card-text">${{number_format($accesorio->precio)}}</p>
+        <p class="card-text">${{number_format($accesorio->price)}}</p>
         <a href="#" class="btn btn-primary">¡Lo quiero!</a>
     </div>
 </div>

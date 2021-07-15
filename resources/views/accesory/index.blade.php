@@ -32,11 +32,11 @@
                         <div class="card col-sm-12 col-md-4 col-lg-3">
                             <img src="{{asset('uploads/accesories/'.$accesory->foto)}}" class="card-img-top"
                                 alt="Se supone que va la imagen" width="200px" height="200px">
-                            <div class="card-body">
-                                <h5 class="card-title">{{$accesory->name}}</h5>
-                                <p class="card-text">
-                                    ${{number_format($accesory->price)}}
-                                </p>
+                            <div class="card-body text-center">
+                                <h5 class="text-center">{{ucfirst(strtolower($accesory->name))}}</h5>
+                                <p class="card-text">${{number_format($accesory->price)}}</p>
+                            </div>
+                            <div class="pb-2">
                                 <form action="{{route('accesory.destroy', $accesory->id)}}" method="POST"
                                     class="text-center">
                                     <a class="btn btn-sm btn-info" href="{{ route('accesory.show',$accesory->id) }}"><i
@@ -50,12 +50,13 @@
                                 </form>
                             </div>
                         </div>
-                        @endforeach
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
