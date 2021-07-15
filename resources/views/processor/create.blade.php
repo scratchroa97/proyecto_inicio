@@ -26,9 +26,13 @@
                     <form action="{{ route('processor.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <strong>Referencia del procesador</strong>
-                            <input type="text" name="referencia" id="referencia" class="form-control">
-                            <small>La refrencia del procesador puede cambiar</small>
+                            <strong>Nombre del procesador</strong>
+                            <input type="text" name="nombre" id="nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <strong>Descripción</strong>
+                            <textarea name="descripcion" id="descripcion" cols="30" rows="5"
+                                class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Crear</button>

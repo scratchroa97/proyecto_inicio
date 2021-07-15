@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1>Procesadores <a href="{{ route('processor.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a>
+<h1>Procesadores <a href="{{ route('processor.create') }}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a>
 </h1>
 @stop
 
@@ -23,28 +23,29 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2>Listado de procesadores</h2>
+                    <h2 class="text-center">Listado de procesadores</h2>
                 </div>
                 <div class="card-body">
                     <table class="table table-ms table-bordered">
-                        <thead class="thead-dark">
+                        <thead class="thead-dark text-center">
                             <th>#</th>
                             <th>Referencia</th>
                             <th>Acción</th>
                         </thead>
                         <tbody>
                             @foreach($procesador as $procesador)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $procesador->id}}</td>
                                 <td>{{ $procesador->processor_name}}</td>
                                 <td>
                                     <form action="{{ route('processor.destroy', $procesador->id) }}" method="POST">
                                         <a class="btn btn-primary btn-sm"
-                                            href="{{ route('processor.edit', $procesador->id) }}">Editar</a>
+                                            href="{{ route('processor.edit', $procesador->id) }}"><i
+                                                class="fa fa-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm" id="btnEliminar"
-                                            onclick="eliminar();">Eliminar</button>
+                                            onclick="eliminar();"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

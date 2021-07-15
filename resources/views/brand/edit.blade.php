@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Baterías')
+@section('title', 'Marcas')
 
 @section('content_header')
-<h1>Brand</h1>
+<h1>Marcas</h1>
 @stop
 
 @section('content')
@@ -20,25 +20,36 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Editar Brand</h2>
+                    <h2 class="text-center">Editar marca</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('brand.update', $brand->id) }}" method="POST">
+                    <form action="{{ route('brand.update', $brand->id) }}" method="POST" class="form-row">
                         @csrf
                         @method('PUT')
-                        <div class="form-group">
-                            <strong>Nombre del Brands</strong>
-                            <input type="text" name="nombreBrand" id="nombreBrand" class="form-control"
-                                value="{{ $brand['brand_name'] }}">
-                        </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <strong>Tipo del Brands</strong>
+                                <strong>Nombre</strong>
+                                <input type="text" name="nombreBrand" id="nombreBrand" class="form-control"
+                                    value="{{ $brand['brand_name'] }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Categoría</strong>
                                 <select name="typeBrand" id="typeBrand" class="form-control">
-                                    <option value="">Seleccione una opción</option>
-                                    <option value="celular">celular</option>
-                                    <option value="accesorio">accesorio</option>
-                                    <option value="ambos">ambos</option>
+                                    @if($brand->type == 'accesorio')
+                                    <option value="{{$brand->type}}" selected>Accesorio</option>
+                                    <option value="celular">Celular</option>
+                                    <option value="ambos">Accesorio y Celular</option>
+                                    @elseif($brand->type == 'celular')
+                                    <option value="{{$brand->type}}" selected>Celular</option>
+                                    <option value="accesorio">Accesorio</option>
+                                    <option value="ambos">Accesorio y Celular</option>
+                                    @else
+                                    <option value="{{$brand->type}}" selected>Accesorio y Celular</option>
+                                    <option value="accesorio">Accesorio</option>
+                                    <option value="celular">Celular</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>

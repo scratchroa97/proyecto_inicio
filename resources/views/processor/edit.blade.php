@@ -27,8 +27,8 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <strong>Refeencia del procesador</strong>
-                            <input type="text" name="referencia" id="referencia" class="form-control"
+                            <strong>Nombre del procesador</strong>
+                            <input type="text" name="nombre" id="nombre" class="form-control"
                                 value="{{ $procesador->processor_name }}">
                             <small>La referencia del procesador puede ser intel o AMD.</small>
                         </div>

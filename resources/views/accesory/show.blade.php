@@ -55,6 +55,9 @@
                         <div class="col-md-4">
                             <p><strong>Peso</strong><br> {{$accesory->weight}} Kg</p>
                         </div>
+                        <div class="col-md-4">
+                            <p><strong>Descipción</strong><br> {{$accesory->description}}</p>
+                        </div>
                     </div>
                     <div class="col-md-12 text-right pr-5">
                         <a href="{{route('accesory.index')}}" class="btn btn-sm btn-warning">Volver</a>

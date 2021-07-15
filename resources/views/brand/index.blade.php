@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1>Brand<a href="{{ route('brand.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h1>Marcas <a href="{{ route('brand.create') }}" class="btn btn-success btn-xs"> <i class="fa fa-plus"></i></a></h1>
 @stop
 
 @section('content')
@@ -22,29 +22,31 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2>Listado de Brands</h2>
+                    <h2>Listado de marcas</h2>
                 </div>
                 <div class="card-body">
                     <table class="table table-ms table-bordered">
-                        <thead class="thead-dark">
+                        <thead class="thead-dark text-center">
                             <th>#</th>
-                            <th>Nombre Brand</th>
+                            <th>Nombre</th>
                             <th>Tipo</th>
+                            <th>Acción</th>
                         </thead>
                         <tbody>
                             @foreach($brands as $brand)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $brand['id']}}</td>
-                                <td>{{ $brand['brand_name']}}</td>
-                                <td>{{ $brand['type']}}</td>
+                                <td>{{ ucfirst(strtolower($brand['brand_name'])) }}</td>
+                                <td>{{ ucfirst(strtolower(($brand['type'] == 'ambos') ? 'Accesorio y Celular': $brand['type'])) }}
+                                </td>
                                 <td>
                                     <form action="{{ route('brand.destroy',$brand->id) }}" method="POST">
-                                        <a class="btn btn-primary"
-                                            href="{{ route('brand.edit',$brand->id) }}">Editar</a>
+                                        <a class="btn btn-primary btn-sm" href="{{ route('brand.edit',$brand->id) }}"><i
+                                                class="fa fa-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" id="btnEliminar"
-                                            onclick="eliminar();">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" id="btnEliminar"
+                                            onclick="eliminar();"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

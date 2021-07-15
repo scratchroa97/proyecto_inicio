@@ -37,10 +37,12 @@ class ProcessorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'referencia' => 'required|max:20'
+            'nombre' => 'required',
+            'descripcion' => 'required',
         ]);
         $procesador = new Processor();
-        $procesador->processor_name = $request->referencia;
+        $procesador->processor_name = $request->nombre;
+        $procesador->description = $request->descripcion;
         $procesador->save();
         return redirect()->route('processor.index')->with('success', 'El procesador se creó correctamente!');
     }
@@ -70,10 +72,10 @@ class ProcessorController extends Controller
     public function update(Request $request, Processor $procesador)
     {
         $request->validate([
-            'referencia' => 'required|max:20'
+            'nombre' => 'required|max:20'
         ]);
         $procesador = Processor::find($procesador->id);
-        $procesador->processor_name = $request->referencia;
+        $procesador->processor_name = $request->nombre;
         $procesador->save();
         return redirect()->route('processor.index')->with('success', 'El procesador se actualizó correctamente.');
     }
