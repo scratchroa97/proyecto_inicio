@@ -3,7 +3,7 @@
 @section('title', 'Memoria RAM')
 
 @section('content_header')
-<h1>Memoeria RAM</h1>
+<h1>Memorias RAM</h1>
 @stop
 
 @section('content')
@@ -20,17 +20,17 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Editar Memoria RAM</h2>
+                    <h2 class="text-center">Memoria RAM - {{ $ram->ram_capacity}} GB</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('ram.update', $ram->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <strong>Capacidad de la Memoeria Ram</strong>
+                            <strong>Capacidad de la memoria RAM</strong>
                             <input type="text" name="capacidad" id="capacidad" class="form-control"
-                                value="{{ $ram['capacity'] }}">
-                            <small>La capacidad de la Memoria RAM se guarda en Gb.</small>
+                                value="{{ $ram->ram_capacity }}">
+                            <small>Capacidad en GB.</small>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Actualizar</button>

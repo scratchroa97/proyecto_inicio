@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <strong>Capacidad de la Memoria RAM</strong>
                             <input type="text" name="capacidad" id="capacidad" class="form-control">
-                            <small>La capacidad de la memoria se guarda en Gb.</small>
+                            <small>Capacidad en GB.</small>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Crear</button>

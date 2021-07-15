@@ -1,10 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Memoria rom')
+@section('title', 'Memorias ROM')
 
 
 @section('content_header')
-<h3>Memorías rom</h3>
+<h3>Memorias ROM <a href="{{ route('rom.create') }}" class="btn btn-success btn-xs "><i class="fa fa-plus"></i> </a>
+</h3>
 @stop
 
 @section('content')
@@ -21,30 +22,29 @@
     <div class="row">
         <div class="col-md-10 offset-1">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('rom.create') }}" class="btn btn-success btn-sm float-right"><i
-                            class="fa fa-plus"></i> Nueva</a>
-                    <h2>Listado de Memorias rom</h2>
+                <div class="card-header text-center">
+                    <h2>Listado de memorias ROM</h2>
                 </div>
                 <div class="card-body">
                     <table class="table table-ms table-bordered">
-                        <thead class="thead-dark">
+                        <thead class="thead-dark text-center">
                             <th>#</th>
                             <th>Capacidad</th>
                             <th>Acción</th>
                         </thead>
                         <tbody>
-                            @foreach($rom as $rom)
-                            <tr>
+                            @foreach($roms as $rom)
+                            <tr class="text-center">
                                 <td>{{ $rom->id}}</td>
-                                <td>{{ $rom->rom_capacity}}</td>
+                                <td>{{ $rom->rom_capacity}} GB</td>
                                 <td>
                                     <form action="{{ route('rom.destroy',$rom->id) }}" method="POST">
-                                        <a class="btn btn-primary" href="{{ route('rom.edit',$rom->id) }}">Editar</a>
+                                        <a class="btn btn-primary btn-sm" href="{{ route('rom.edit',$rom->id) }}"><i
+                                                class="fa fa-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" id="btnEliminar"
-                                            onclick="eliminar();">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" id="btnEliminar"
+                                            onclick="eliminar();"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

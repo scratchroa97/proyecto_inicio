@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+{{ dd($battery->id)}}
 <div class="container">
     @if ($errors->any())
     <p>Hay errores!</p>

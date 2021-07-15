@@ -76,7 +76,7 @@ class BatteryController extends Controller
 
         $bateria = Battery::find($battery->id);
         $bateria->capacity = $request->capacidad;
-        $bateria->save();
+        $bateria->update();
         return redirect()->route('battery.index')->with('success', 'La batería se actualizó correctamente.');
     }
 

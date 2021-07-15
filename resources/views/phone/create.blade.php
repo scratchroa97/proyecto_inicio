@@ -117,7 +117,7 @@
                                     <select name="ram_memory_id" id="ram_memory_id" class="form-control">
                                         <option value="">Seleccione una opción</option>
                                         @foreach($rams as $ram)
-                                        <option value="{{$ram->id}}">{{$ram->ram_capacity}}</option>
+                                        <option value="{{$ram->id}}">{{$ram->ram_capacity}} GB</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -128,7 +128,7 @@
                                     <select name="rom_memory_id" id="rom_memory_id" class="form-control">
                                         <option value="">Seleccione una opción</option>
                                         @foreach($roms as $rom)
-                                        <option value="{{$rom->id}}">{{$rom->rom_capacity}}</option>
+                                        <option value="{{$rom->id}}">{{$rom->rom_capacity}} GB</option>
                                         @endforeach
                                     </select>
                                 </div>

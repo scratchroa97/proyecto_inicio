@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1>Memoría RAM <a href="{{ route('ram.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h1>Memorías RAM <a href="{{ route('ram.create') }}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a></h1>
 @stop
 
 @section('content')
@@ -26,23 +26,24 @@
                 </div>
                 <div class="card-body">
                     <table class="table table-ms table-bordered">
-                        <thead class="thead-dark">
+                        <thead class="thead-dark text-center">
                             <th>#</th>
                             <th>Capacidad</th>
                             <th>Acción</th>
                         </thead>
                         <tbody>
                             @foreach($ram as $ram)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $ram['id']}}</td>
-                                <td>{{ $ram['ram_capacity']}}</td>
+                                <td>{{ $ram['ram_capacity']}} GB</td>
                                 <td>
                                     <form action="{{ route('ram.destroy',$ram->id) }}" method="POST">
-                                        <a class="btn btn-primary" href="{{ route('ram.edit',$ram->id) }}">Editar</a>
+                                        <a class="btn btn-primary" href="{{ route('ram.edit',$ram->id) }}"><i
+                                                class="fa fa-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" id="btnEliminar"
-                                            onclick="eliminar();">Eliminar</button>
+                                            onclick="eliminar();"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

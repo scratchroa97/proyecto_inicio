@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ram;
 use App\Models\RamMemory;
 use Illuminate\Http\Request;
 
@@ -38,10 +37,10 @@ class RamMemoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'capacidad' => 'required|max:8'
+            'capacidad' => 'required|max:8',
         ]);
         $ram = new RamMemory();
-        $ram->capacity = $request->capacidad;
+        $ram->ram_capacity = $request->capacidad;
         $ram->save();
         return redirect()->route('ram.index')->with('success', 'La memoria RAM se creó correctamente!');
     }
@@ -76,8 +75,8 @@ class RamMemoryController extends Controller
         ]);
 
         $ram = RamMemory::find($ram->id);
-        $ram->capacity = $request->capacidad;
-        $ram->save();
+        $ram->ram_capacity = $request->capacidad;
+        $ram->update();
         return redirect()->route('ram.index')->with('success', 'La memoria RAM se actualizó correctamente.');
     }
 

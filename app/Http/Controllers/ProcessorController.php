@@ -14,8 +14,8 @@ class ProcessorController extends Controller
      */
     public function index()
     {
-        $procesador = Processor::all();
-        return view('processor.index', compact('procesador'));
+        $procesadores = Processor::all();
+        return view('processor.index', compact('procesadores'));
     }
 
     /**
@@ -51,6 +51,7 @@ class ProcessorController extends Controller
     public function show(Processor $procesador)
     {
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -72,11 +73,13 @@ class ProcessorController extends Controller
     public function update(Request $request, Processor $procesador)
     {
         $request->validate([
-            'nombre' => 'required|max:20'
+            'nombre' => 'required',
         ]);
+
         $procesador = Processor::find($procesador->id);
         $procesador->processor_name = $request->nombre;
-        $procesador->save();
+        $procesador->description = $request->descripcion;
+        $procesador->update();
         return redirect()->route('processor.index')->with('success', 'El procesador se actualizó correctamente.');
     }
 

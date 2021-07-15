@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Procesador')
+@section('title', 'Procesadores')
 
 @section('content_header')
 <h1>Procesadores</h1>
@@ -20,20 +20,23 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Editar procesador</h2>
+                    <h2 class="text-center">Editar procesador {{$procesador->id}}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('processor.update', $procesador->id) }}" method="POST">
+                    <form action="{{ route('processor.store') }}" method="POST">
                         @csrf
-                        @method('PUT')
                         <div class="form-group">
                             <strong>Nombre del procesador</strong>
                             <input type="text" name="nombre" id="nombre" class="form-control"
-                                value="{{ $procesador->processor_name }}">
-                            <small>La referencia del procesador puede ser intel o AMD.</small>
+                                value="{{ $procesador->processor_name}}">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Actualizar</button>
+                            <strong>Descripción</strong>
+                            <textarea name="descripcion" id="descripcion" cols="30" rows="5"
+                                class="form-control">{{ $procesador->description}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Crear</button>
                             <a href="{{ route('processor.index') }}" class="btn btn-warning">Cancelar</a>
                         </div>
                     </form>
@@ -41,15 +44,14 @@
             </div>
         </div>
     </div>
-</div>
-@stop
+    @stop
 
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+    @section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    @stop
 
-@section('js')
-<script>
-console.log('Hi!');
-</script>
-@stop
+    @section('js')
+    <script>
+    console.log('Hi!');
+    </script>
+    @stop

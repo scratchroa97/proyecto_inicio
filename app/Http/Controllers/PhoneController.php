@@ -41,9 +41,9 @@ class PhoneController extends Controller
         $rams = RamMemory::all()->sortBy('ram_capacity');
         $roms = RomMemory::all()->sortBy('rom_capacity');
         $baterias = Battery::all()->sortBy('capacity');
-        $procesadores = Processor::all()->sortBy('proccesor_name');
+        $procesadores = Processor::all()->sortBy('processor_name');
         $graficos = GraphicCard::all()->sortBy('graphic_name');
-        $ops = OperatingSystem::all()->sortBy('os_name');
+        $ops = OperatingSystem::all();
         return view('phone.create', compact('colores', 'marcas', 'pantallas', 'rams', 'roms', 'baterias', 'procesadores', 'graficos', 'ops'));
     }
 

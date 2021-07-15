@@ -14,8 +14,8 @@ class RomMemoryController extends Controller
      */
     public function index()
     {
-        $rom = RomMemory::all();
-        return view('rom.index', compact('rom'));
+        $roms = RomMemory::all()->sortBy('rom_capacity');
+        return view('rom.index', compact('roms'));
     }
 
     /**
@@ -40,7 +40,7 @@ class RomMemoryController extends Controller
             'capacidad' => 'required|max:8'
         ]);
         $rom = new RomMemory();
-        $rom->capacity = $request->capacidad;
+        $rom->rom_capacity = $request->capacidad;
         $rom->save();
         return redirect()->route('rom.index')->with('success', 'La memoria rom se creó correctamente!');
     }
@@ -75,8 +75,8 @@ class RomMemoryController extends Controller
         ]);
 
         $rom = RomMemory::find($rom->id);
-        $rom->capacity = $request->capacidad;
-        $rom->save();
+        $rom->rom_capacity = $request->capacidad;
+        $rom->update();
         return redirect()->route('rom.index')->with('success', 'La memoria rom se actualizó correctamente.');
     }
 

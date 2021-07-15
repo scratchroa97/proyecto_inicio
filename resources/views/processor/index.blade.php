@@ -33,14 +33,14 @@
                             <th>Acción</th>
                         </thead>
                         <tbody>
-                            @foreach($procesador as $procesador)
+                            @foreach($procesadores as $procesador)
                             <tr class="text-center">
-                                <td>{{ $procesador->id}}</td>
+                                <td>{{ $procesador->id }}</td>
                                 <td>{{ $procesador->processor_name}}</td>
                                 <td>
-                                    <form action="{{ route('processor.destroy', $procesador->id) }}" method="POST">
+                                    <form action="{{ route('processor.destroy',$procesador->id) }}" method="POST">
                                         <a class="btn btn-primary btn-sm"
-                                            href="{{ route('processor.edit', $procesador->id) }}"><i
+                                            href="{{ route('processor.edit',$procesador->id) }}"><i
                                                 class="fa fa-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
