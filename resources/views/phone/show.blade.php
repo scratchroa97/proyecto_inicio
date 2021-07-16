@@ -44,7 +44,6 @@
 
                         <div class="col-md-4">
                             <p><strong>Capacidad Batería:</strong> {{$phone->getBattery->capacity}}</p>
-                            <p><strong>Tamaño pantalla:</strong> {{$phone->getProcessor->processor_name}}</p>
                             <p><strong>Tarjeta Gráfica:</strong> {{$phone->getGraphic->graphic_name}}</p>
                             <p><strong>Sistema Operativo:</strong> {{$phone->getOS->os_name}}</p>
                         </div>
