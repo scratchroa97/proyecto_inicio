@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1>Accesorios <a href="{{ route('accesory.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a>
+<h1>Accesorios <a href="{{ route('accesory.create') }}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a>
 </h1>
 @stop
 

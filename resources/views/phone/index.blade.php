@@ -4,7 +4,7 @@
 
 
 @section('content_header')
-<h1>Teléfonos <a href="{{ route('phone.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a></h1>
+<h1>Teléfonos <a href="{{ route('phone.create') }}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a></h1>
 @stop
 
 @section('content')
@@ -35,17 +35,18 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="text-center">{{ucfirst(strtolower($phone->phone_name))}}
-                                    {{ucfirst(strtolower($phone->phone_model))}}</h5>
+                                    {{ucfirst(strtolower($phone->phone_model))}}
+                                </h5>
                                 <p class="card-text text-center">${{number_format($phone->precio)}}</p>
                             </div>
                             <form action="{{ route('phone.destroy',$phone->id) }}" method="POST" class="text-center">
-                                <a class="btn btn-sm btn-info" href="{{ route('phone.show',$phone->id) }}"><i
+                                <a class="btn btn-xs btn-info" href="{{ route('phone.show',$phone->id) }}"><i
                                         class="fa fa-eye"></i></a>
-                                <a class="btn btn-sm btn-primary" href="{{ route('phone.edit',$phone->id) }}"><i
+                                <a class="btn btn-xs btn-primary" href="{{ route('phone.edit',$phone->id) }}"><i
                                         class="fa fa-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" id="btnEliminar"
+                                <button type="submit" class="btn btn-xs btn-danger" id="btnEliminar"
                                     onclick="eliminar();"><i class="fa fa-trash"></i></button>
                             </form>
                         </div>
