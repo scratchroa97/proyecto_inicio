@@ -24,13 +24,14 @@
         padding: 2%;
     }
 
-    .infopag {
+    .infopag {background-image: url(uploads/img/contactofor.png);
         text-align: center;
         justify-content: center;
+        color: rgb(255, 81, 0)
     }
 
     .formcontact {
-        text-align: center; background-image: url(../img/contactofor.png) ; 
+        text-align: center; 
     }
 
     .comentariouser{height: 100px;
@@ -40,19 +41,24 @@
         background: rgb(219, 219, 219); 
     }
     .formu{
-        border-color: rgb(0, 0, 0); border-style: double;padding: 1%;
+        border-color: rgb(0, 0, 0); border-style: double;padding: 2%; background-color: aliceblue ;
     }
     .imgredes{
         width: "200px" ; height:"200px" ;
     }
+    .afterfor{
+        padding: 3%
+    }
 </style>
 
-    <h1 class="tittle">Nuestro equipo se pondra en contacto contigo</h1><br>
+    
     <div class="container">
         <img class="imag" src="{{asset('uploads/img/plantilla.jpg')}}" alt="">
     </div><br>
-    <div class="container formcontact">
-        <div class="row">
+    <h1 class="tittle container">Nuestro equipo se pondra en contacto contigo</h1><br>
+    <br>
+    <br><div class="container formcontact">
+        <div class="row afterfor">
             <div class="col-xl-6 col-lg-5 col-md-4 col-sm-3 formu">
                 <form class="form-grou">
                     <div class="form-group">
@@ -73,12 +79,12 @@
                 </form>
             </div>
             <div class="infopag col-xl-6 col-lg-4 col-md-2">
-                <a href="https://www.facebook.com/" target="_blank "><img class="imgredes" src="{{asset('uploads/img/redespagcel.jpg')}}" alt=""></a>
-                <br><br><p>Bogotá, Calle 123&nbsp;#&nbsp;45-123 CO</p>
-                <p>celphone@example.com</p>
-                <p>+ 01 234 567 88</p>
-                <p>+ 57 313 365 3643</p>
-                <a href="https://www.whatsapp.com/?lang=es" target="_blank" ><img width="70px" height="70px" src="{{asset('uploads/img/iconwhatsapp.jpg')}}" >Asesoria inmediata</a>
+                <br><a href="https://www.facebook.com/" target="_blank "><img class="imgredes" width="150px" height="150px" src="{{asset('uploads/img/redespagcel.png')}}" alt=""></a>
+                <br><br><p class="fas fa-home" > Bogotá, Calle 123&nbsp;#&nbsp;45-123 CO</p><br>
+                <p class="fas fa-envelope"> celphone@example.com</p><br>
+                <p class="fas fa-phone"> + 01 234 567 88</p><br>
+                <p class="fas fa-mobile"> + 57 313 365 3643</p><br><br>
+                <br><a href="https://www.whatsapp.com/?lang=es" target="_blank" ><img width="55px" height="55px" src="{{asset('uploads/img/iconwhatsapp.png')}}" ><strong>Asesoria inmediata</strong></a>
             </div>
         </div>
 
